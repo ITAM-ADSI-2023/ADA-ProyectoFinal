@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de casos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+        .add-task-btn {
+            display: inline-block;
+            background-color: #5bc0de;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .add-task-btn:hover {
+            background-color: #31b0d5;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Centro de casos</h1>
+        <ul>
+            <li>
+                <a href="{% url 'dasboard' %}"><label for="task1" >Caso 1</label></a>
+                
+            </li>
+            <li>
+                <a href="{% url 'dasboard' %}"><label for="task1" >Caso 2</label></a>
+                
+            </li>
+            <li>
+                <a href="{% url 'dasboard' %}"><label for="task1" >Caso 3</label></a>
+                
+            </li>
+            <li>
+                <a href="{% url 'dasboard' %}"><label for="task1" >Caso 4</label></a>
+                
+            </li>
+            <li>
+                <a href="{% url 'dasboard' %}"><label for="task1" >Caso 5</label></a>
+                
+            </li>
+        </ul>
+        <a class="add-task-btn">Añadir caso</a>
+    </div>
+
+    
+</body>
+</html>
