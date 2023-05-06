@@ -2,7 +2,7 @@
 
 Proyecto Final de ADSI para implmentar funcionalidades eficientes para la *Clínica de litigio de violaciones de derechos humanos del ITAM*.
 
-El proyecto se programo en **Django**, se implmento la funcionalidades de **Google Drive**.
+El proyecto se programo en **Django**, se implementaron la funcionalidades de **Google Drive**.
 
   - Inicio de Sesión.
   - Elección de acceso entre Coordinador y Colaborador. 
