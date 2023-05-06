@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        select {
+            font-size: 14px;
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #5bc0de;
+            box-shadow: 0 0 5px rgba(91, 192, 222, 0.5);
+        }
+        .add-task-btn {
+            display: inline-block;
+            background-color: #5bc0de;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .add-task-btn:hover {
+            background-color: #31b0d5;
+            cursor: pointer;
+        }
+        .multimedia-section {
+            margin-top: 50px;
+        }
+
+        .multimedia-section h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .multimedia-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .multimedia-item img,
+        .multimedia-item video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .calendar-section {
+            margin-top: 50px;
+        }
+
+        .calendar-section h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .calendar-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calendar-container iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            border: 0;
+            border-radius: 4px;
+        }
+        .gantt-chart-section {
+            margin-top: 50px;
+        }
+
+        .gantt-chart-section h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .gantt-chart {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .gantt-chart th,
+        .gantt-chart td {
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            text-align: left;
+        }
+
+        .gantt-chart th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .not-started {
+            background-color: #d9534f;
+        }
+
+        .in-progress {
+            background-color: #5bc0de;
+        }
+
+        .completed {
+            background-color: #5cb85c;
+        }
+
+        .nav-bar {
+            background-color: #333;
+            overflow: hidden;
+            position: -webkit-sticky; /* For Safari browser compatibility */
+            position: sticky;
+            top: 0;
+            z-index: 100; /* To ensure it stays on top of other elements */
+        }
+
+        .nav-bar a {
+            float: left;
+            display: block;
+            color: #f1f1f1;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .nav-bar a:hover {
+            background-color: #555;
+            color: #f1f1f1;
+        }
+
+        /* Add some padding to the container to prevent overlap with the sticky nav bar */
+        .container {
+            padding-top: 50px;
+        }
+
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso 1</title>
+    <style>
+        /* ... existing CSS from the previous template ... */
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['gantt']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+          const data = new google.visualization.DataTable();
+          data.addColumn('string', 'Task ID');
+          data.addColumn('string', 'Task Name');
+          data.addColumn('string', 'Resource');
+          data.addColumn('date', 'Start Date');
+          data.addColumn('date', 'End Date');
+          data.addColumn('number', 'Duration');
+          data.addColumn('number', 'Percent Complete');
+          data.addColumn('string', 'Dependencies');
+
+          data.addRows([
+  ['Task 1', 'Task 1', 'Task 1', new Date(2023, 4, 1), new Date(2023, 4, 5), null, 100, null],
+  ['Task 2', 'Task 2', 'Task 2', new Date(2023, 4, 6), new Date(2023, 4, 10), null, 50, 'Task 1'],
+  ['Task 3', 'Task 3', 'Task 3', new Date(2023, 4, 6), new Date(2023, 4, 10), null, 50, 'Task 1'],
+  ['Task 4', 'Task 4', 'Task 4', new Date(2023, 4, 11), new Date(2023, 4, 15), null, 0, 'Task 2'],
+  ['Task 5', 'Task 5', 'Task 5', new Date(2023, 4, 16), new Date(2023, 4, 20), null, 80, 'Task 3'],
+  ['Task 6', 'Task 6', 'Task 6', new Date(2023, 4, 21), new Date(2023, 4, 25), null, 100, 'Task 4'],
+]);
+
+
+          const options = {
+            height: 500,
+            gantt: {
+              trackHeight: 30
+            }
+          };
+
+          const chart = new google.visualization.Gantt(document.getElementById('gantt-chart'));
+
+          chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+    
+    <nav class="nav-bar" >
+        <a href="#task-list">To-Do List</a>
+        <a href="#multimedia-section">Multimedia</a>
+        <a href="#calendar-section">Google Calendar</a>
+        <a href="#gantt-chart-section">Project Roadmap</a>
+    </nav>
+    <div class="container">
+        <h1>Caso 1</h1>
+        <ul>
+            <!-- Add your tasks here, following the same structure as the example task -->
+            <li>
+                <a href="{% url 'task' %}"><label >Task 1</label></a>
+                <select id="task1" onchange="updateTaskStatus(this)">
+                    <option value="Not Started" selected>Not Started</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </li>
+            <li>
+                <a href="{% url 'task' %}"><label for="task1" >Task 2</label></a>
+                <select id="task1" onchange="updateTaskStatus(this)">
+                    <option value="Not Started" selected>Not Started</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </li>
+            <li>
+                <a href="{% url 'task' %}"><label for="task1" >Task 3</label></a>
+                <select id="task1" onchange="updateTaskStatus(this)">
+                    <option value="Not Started" selected>Not Started</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </li>
+            <li>
+                <a href="{% url 'task' %}"><label for="task1" >Task 4</label></a>
+                <select id="task1" onchange="updateTaskStatus(this)">
+                    <option value="Not Started" selected>Not Started</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </li>
+        </ul>
+        <a class="add-task-btn">Add Task</a>
+        <div class="multimedia-section">
+            <h2>Multimedia</h2>
+            <div class="multimedia-container">
+                <div class="multimedia-item">
+                    <img src="https://via.placeholder.com/200" alt="Sample Image">
+                </div>
+                <div class="multimedia-item">
+                    <video controls>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+            </div>
+        </div>
+        <a class="add-task-btn">Añadir multimedia</a>
+        <div class="calendar-section">
+            <h2>Google Calendar</h2>
+            <div class="calendar-container">
+                <iframe src="https://calendar.google.com/calendar/embed?src=es.mexican%23holiday%40group.v.calendar.google.com&ctz=America%2FMexico_City" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </div>
+        <div id="gantt-chart-section">
+            <h2>Project Roadmap</h2>
+            <table class="gantt-chart">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Status</th>
+                        <th>Entries</th> <!-- New column for entries -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Task 1</td>
+                        <td>2023-05-01</td>
+                        <td>2023-05-05</td>
+                        <td>Completed</td>
+                        <td>
+                            <ul>
+                                <li>Person 1: 4 hours</li>
+                                <li>Person 2: 6 hours</li>
+                            </ul>
+                        </td> <!-- New data for entries -->
+                    </tr>
+                    <tr>
+                        <td>Task 2</td>
+                        <td>2023-05-06</td>
+                        <td>2023-05-10</td>
+                        <td>In Progress</td>
+                        <td>
+                            <ul>
+                                <li>Person 3: 8 hours</li>
+                                <li>Person 4: 2 hours</li>
+                            </ul>
+                        </td> <!-- New data for entries -->
+                    </tr>
+                    <!-- ... additional tasks ... -->
+                </tbody>
+            </table>
+        </div>
+        <div id="gantt-chart-section">
+            <h2>Project Gantt Chart</h2>
+            <div id="gantt-chart" style="width: 100%;"></div>
+        </div>
+
+        
+    </div>
+
+    <script>
+        function updateTaskStatus(task) {
+            const selectedStatus = task.options[task.selectedIndex].value;
+            const listItem = task.parentElement;
+
+            listItem.style.backgroundColor =
+                selectedStatus === "Not Started" ? "#d9534f" : /* Red for Not Started */
+                selectedStatus === "In Progress" ? "#5bc0de" : /* Blue for In Progress */
+                "#5cb85c"; /* Green for Completed */
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <style>
+        /* ... existing CSS from the previous template ... */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        select {
+            font-size: 14px;
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #5bc0de;
+            box-shadow: 0 0 5px rgba(91, 192, 222, 0.5);
+        }
+
+        /* Task Details Page */
+        .task-details {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .task-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .task-description {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .people-involved {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .time-entries {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 18px;
+        }
+
+        .time-entries th,
+        .time-entries td {
+            border: 1px solid #ccc;
+            text-align: left;
+            padding: 8px;
+        }
+
+        .time-entries th {
+            background-color: #f2f2f2;
+        }
+        .nav-bar {
+            background-color: #333;
+            overflow: hidden;
+            position: -webkit-sticky; /* For Safari browser compatibility */
+            position: sticky;
+            top: 0;
+            z-index: 100; /* To ensure it stays on top of other elements */
+        }
+
+        .nav-bar a {
+            float: left;
+            display: block;
+            color: #f1f1f1;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .nav-bar a:hover {
+            background-color: #555;
+            color: #f1f1f1;
+        }
+
+        /* Add some padding to the container to prevent overlap with the sticky nav bar */
+        .container {
+            padding-top: 50px;
+        }
+        .add-task-btn {
+            display: inline-block;
+            background-color: #5bc0de;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .add-task-btn:hover {
+            background-color: #31b0d5;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <!-- ... existing nav bar HTML ... -->
+        <a href="#task-list">To-Do List</a>
+        <a href="#multimedia-section">Multimedia</a>
+        <a href="#calendar-section">Google Calendar</a>
+        <a href="#gantt-chart-section">Project Roadmap</a>
+    </nav>
+
+    <div class="container">
+        <div class="task-details">
+            <h2 class="task-title">Task 1</h2>
+            <p class="task-description">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat accusantium aperiam neque quia vero aliquid, tempore magnam labore, incidunt numquam quod ab nesciunt autem eos mollitia, error ipsa soluta voluptate? Ea consequuntur sequi a repellendus? Possimus nesciunt voluptatibus ratione, exercitationem incidunt hic tempora tempore nihil numquam? Enim quae error alias.
+            </p>
+
+            <h3 class="people-involved">Personas involucradas:</h3>
+            <ul>
+                <li>Juan</li>
+                <li>Jaime</li>
+                <li>Marco</li>
+            </ul>
+
+            <h3>Time Entries:</h3>
+            <table class="time-entries">
+                <thead>
+                    <tr>
+                        <th>Juan</th>
+                        <th>Entry Date</th>
+                        <th>Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jaime</td>
+                        <td>2023-05-01</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>Marco</td>
+                        <td>2023-05-01</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>Jaime</td>
+                        <td>2023-05-02</td>
+                        <td>8</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a class="add-task-btn">Añadir entrada</a>
+    </div>
+
+    <!-- ... existing JavaScript ... -->
+    <script>
+        function updateTaskStatus(task) {
+            const selectedStatus = task.options[task.selectedIndex].value;
+            const listItem = task.parentElement;
+
+            listItem.style.backgroundColor =
+                selectedStatus === "Not Started" ? "#d9534f" : /* Red for Not Started */
+                selectedStatus === "In Progress" ? "#5bc0de" : /* Blue for In Progress */
+                "#5cb85c"; /* Green for Completed */
+        }
+        
+    </script>
+</body>
+</html>
